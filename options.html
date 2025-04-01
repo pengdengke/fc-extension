@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Flow Capacity 设置</title>
+    <link rel="stylesheet" href="css/options.css">
+</head>
+<body>
+    <div class="container">
+        <h1>流量设置</h1>
+        <form id="settingsForm">
+            <div class="form-group">
+                <label for="url">API地址</label>
+                <input type="text" id="url" name="url" placeholder="请输入API地址" required>
+            </div>
+            <div class="form-group">
+                <label for="totalFlowParamName">总流量参数名</label>
+                <input type="text" id="totalFlowParamName" name="totalFlowParamName" placeholder="请输入总流量参数名" required>
+            </div>
+            <div class="form-group">
+                <label for="usedFlowParamName">已用流量参数名</label>
+                <input type="text" id="usedFlowParamName" name="usedFlowParamName" placeholder="请输入已用流量参数名" required>
+            </div>
+            <div class="form-group">
+                <label for="updateInterval">更新时间(s)</label>
+                <input type="number" id="updateInterval" name="updateInterval" min="1" required>
+            </div>
+            <button type="submit" class="save-btn">保存设置</button>
+        </form>
+    </div>
+    <script src="js/options.js"></script>
+</body>
+</html> 

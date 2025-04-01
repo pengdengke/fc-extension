@@ -1,0 +1,72 @@
+body {
+    width: 300px;
+    height: 300px;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.github-icon,
+.settings-icon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-icon svg {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
+.chart-container {
+    position: relative;
+    width: 300px;
+    height: calc(100% - 40px);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+}
