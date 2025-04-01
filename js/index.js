@@ -19,19 +19,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     center: ['50%', '60%'],
                     startAngle: 180,
                     endAngle: 0,
+                    min: 0,
+                    max: 100,
                     axisLine: {
                         lineStyle: {
                             width: 30,
                             color: [
-                                [0.8, '#4CAF50'],
-                                [0.9, '#FFA500'],
-                                [1, '#FF0000']
+                                [0.8, '#4CAF50'],  // 绿色
+                                [0.9, '#FFA500'],  // 黄色
+                                [1, '#FF0000']     // 红色
                             ]
                         }
                     },
                     pointer: {
                         itemStyle: {
-                            color: 'auto'
+                            color: '#4CAF50'  // 默认使用绿色
                         }
                     },
                     axisTick: {
@@ -62,7 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         rich: {
                             value: {
                                 fontSize: 36,
-                                fontWeight: 'bolder'
+                                fontWeight: 'bolder',
+                                color: '#4CAF50'  // 默认使用绿色
                             },
                             unit: {
                                 fontSize: 16,
@@ -78,7 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                     data: [
                         {
-                            value: 0
+                            value: 0,
+                            itemStyle: {
+                                color: '#4CAF50'  // 默认使用绿色
+                            }
                         }
                     ]
                 }
@@ -104,22 +110,18 @@ document.addEventListener('DOMContentLoaded', function () {
             option.series[0].detail.formatter = function (value) {
                 return '{value|' + usedFlow + '}{unit|GB}\n{total|总流量: ' + totalFlow + 'GB}';
             };
-            option.series[0].detail.rich = {
-                value: {
-                    fontSize: 36,
-                    fontWeight: 'bolder'
-                },
-                unit: {
-                    fontSize: 16,
-                    color: '#999',
-                    padding: [0, 0, -20, 10]
-                },
-                total: {
-                    fontSize: 14,
-                    color: '#999',
-                    padding: [10, 0, 0, 0]
-                }
-            };
+
+            // 根据百分比设置颜色
+            let color = '#4CAF50';  // 默认绿色
+            if (percentage >= 90) {
+                color = '#FF0000';  // 红色
+            } else if (percentage >= 80) {
+                color = '#FFA500';  // 黄色
+            }
+
+            option.series[0].data[0].itemStyle.color = color;
+            option.series[0].pointer.itemStyle.color = color;
+            option.series[0].detail.rich.value.color = color;
 
             flowChart.setOption(option);
         }
