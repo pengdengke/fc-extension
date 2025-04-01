@@ -46,7 +46,7 @@ MIT License
 
 ## 作者
 
-[您的名字]
+[KiddPpp](https://github.com/pengdengke)
 
 ## 更新日志
 
